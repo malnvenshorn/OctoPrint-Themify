@@ -1,0 +1,35 @@
+<form class="form-horizontal" data-bind="with: $root.viewModels.settings">
+
+  <h3>{{ _("General") }}</h3>
+
+  <div class="control-group">
+    <div class="controls">
+      <label class="checkbox">
+          <input type="checkbox" data-bind="checked: plugin.enable">{{ _("Enable") }}</input>
+      </label>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Theme</label>
+    <div class="controls">
+      <select data-bind="options: themeList, value: plugin.theme, optionsCaption: '{{ _("Select...") }}'"></select>
+      <a title="{{ _("Delete theme") }}" class="btn btn-danger" data-bind="click: openDeleteThemeDialog"><i class="far fa-trash-alt"></i></a>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label"></label>
+    <div class="controls">
+      <input type="text" class="input" placeholder="{{ _("My New Theme") }}" data-bind="value: newThemeName">
+      <a title="{{ _("New theme") }}" class="btn btn-primary" data-bind="click: addNewThemeSafe"><i class="fas fa-plus"></i></a>
+    </div>
+  </div>
+
+  <h3>{{ _("Editor") }}</h3>
+
+  <div class="control-group">
+    <textarea id="settings_plugin_themify_editor" rows="16" class="block monospace" data-bind="value: editor.content, event: { keydown: editor.handleTabKey }"></textarea>
+  </div>
+
+</form>
