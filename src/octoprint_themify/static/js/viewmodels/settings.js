@@ -49,8 +49,12 @@ export default class Settings {
         // Apply theme, either from URL parameter or settings
         const url = new URL(window.location.href);
         const theme = url.searchParams.get('theme');
-        this.switchTheme(theme || this.plugin.theme());
-        this.editor.load(this.plugin.theme());
+        // Load theme list, so we can check whether or not the selected theme exists. If the theme dosn't exist
+        // the current theme will be 'undefined' and therefore not loaded.
+        Client.getThemeList().done((response) => {
+            this.themeList(response);
+            this.switchTheme(theme || this.plugin.theme());
+        });
     }
 
     onSettingsShown() {
