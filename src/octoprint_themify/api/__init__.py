@@ -26,7 +26,7 @@ class ThemifyAPI(BlueprintPlugin):
         return jsonify(sorted(themes, key=str.lower)), HTTPStatus.OK
 
     @route("/api/themes/<string:name>", methods=["GET"])
-    @requires(Permissions.SETTINGS)
+    @requires(Permissions.SETTINGS_READ)
     @exception_handler
     def get_theme(self, name):
         with open(os.path.join(self.get_plugin_data_folder(), f"{name}.css"), mode="r") as file:
