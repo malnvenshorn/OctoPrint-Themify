@@ -5,7 +5,7 @@ from setuptools import setup
 
 plugin_name = "OctoPrint-Themify"
 plugin_description = "Change the look of OctoPrint by adding your own themes."
-plugin_version = "0.1.1"
+plugin_version = "0.1.2"
 plugin_author = "Sven Lohrmann"
 plugin_author_email = "malnvenshorn@mailbox.org"
 plugin_url = "https://github.com/malnvenshorn/octoprint-themify"
